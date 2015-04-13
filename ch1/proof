@@ -1,0 +1,16 @@
+user@user:~/linux/linux-3.16.0/std/module/eudyptula/ch1$ make
+make -C /lib/modules/3.16.0-34-generic/build M=/home/user/linux/linux-3.16.0/std/module/eudyptula/ch1 modules
+make[1]: Entering directory '/usr/src/linux-headers-3.16.0-34-generic'
+  CC [M]  /home/user/linux/linux-3.16.0/std/module/eudyptula/ch1/ch1.o
+  Building modules, stage 2.
+  MODPOST 1 modules
+  CC      /home/user/linux/linux-3.16.0/std/module/eudyptula/ch1/ch1.mod.o
+  LD [M]  /home/user/linux/linux-3.16.0/std/module/eudyptula/ch1/ch1.ko
+make[1]: Leaving directory '/usr/src/linux-headers-3.16.0-34-generic'
+user@user:~/linux/linux-3.16.0/std/module/eudyptula/ch1$ sudo insmod ch1.ko
+user@user:~/linux/linux-3.16.0/std/module/eudyptula/ch1$ lsmod | grep ch1
+ch1                    12423  0 
+user@user:~/linux/linux-3.16.0/std/module/eudyptula/ch1$ dmesg | tail
+[35591.124277] Hello world!
+user@user:~/linux/linux-3.16.0/std/module/eudyptula/ch1$ sudo rmmod ch1.ko
+
